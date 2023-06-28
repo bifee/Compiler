@@ -1,0 +1,46 @@
+
+<S> ::= <define_var> S | <func> {S}
+<expressao> ::= <operaçao> {<expressao>} | <define_var> {<expressao>} | <estrut_control> {<expressao>} | return_struct
+<estrut_control> ::=  <if> | <for> | <while> | <else>
+<operaçao> ::= <operaçao_atr> | <operaçao_comp> | <atribuicao>
+<operaçao_atr> ::=  <var> = <int> <operator> <var> | <var> = <var> <operator> <int> | <var> = <int> <operator> <int> | <var> = <var> <operator> <var> | <var> = <var> | <var> = <atr> 
+<operaçao_comp> ::= <var> <comparaçao> <atr> | <var> <comparaçao> <var>
+<define_var> ::= {<unique>}<type> <var> = <var> | {<unique>} <type> <var> = <atr>
+<var> ::= <letra><var_name_final>
+<var_name_next> ::= <letra>{<var_name_next>} | <int>{<var_name_next>} 
+<atr> ::= <char> | <int> | <string_format> | <bool> | <float_format>
+<int> ::= <digito> {<int>}
+<string_format> ::= <aspas><string><aspas>
+<string> ::= <letra>{<string>} | <digito>{<string>}
+<float_format> ::= <int>.<int>
+<func> ::= <def> <var> <parent_op><escopo><parent_op> <chaves_op><expressao><chaves_cls>
+<escopo> ::= {<type> <var>{<virgula><escopo>}}
+<return_struct> ::= <return><atr> | <return><var>
+<if> ::= <if_word> <operaçao_comp> <chaves_op> <expressao><chaves_cls>
+<else> ::= <else_word> <chaves_op><expressao><chaves_cls> 
+<for> ::= <for_word> <var> <for_word_ate> <int> <chaves_op><expressao><chaves_cls> | <for_word> <var> <for_word_ate> <var> <chaves_op><expressao><chaves_cls>
+<while> ::= <while_word> <operaçao_comp> <chaves_op><expressao><chaves_cls>
+<type> ::= int | float | char | bool | string
+<operator> ::= + | - | / | * | % | =
+<comparaçao> ::= == | != | <= | >= | < | >
+<letra> ::= a | b ... y | z | A | B ... Y | Z
+<char> ::= <aspas_simples> <letra> <aspas_simples>
+<digito> ::= 0 | 1 | 2 ... 8 | 9
+<bool> ::= True | False
+<chaves_op> ::= {
+<chaves_cls> ::= }
+<parent_op> ::= (
+<parent_cls> ::= )
+<virgula> ::= ,
+<return> ::= return
+<if_word> ::= senhor, caso
+<else_word> ::= senao, receio que
+<for_word> ::= senhor, voce tem das 
+<for_word_ate> ::= ate
+<while_word> ::= durante tal ordem, 
+<def> ::= def
+<aspas> ::= "
+<aspas_simples> :: = '
+<unique> ::= $
+
+				
